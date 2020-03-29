@@ -1,2 +1,2 @@
 # testautobuild
-Test of automated DockerHuub build
+Test of automated DockerHub build
