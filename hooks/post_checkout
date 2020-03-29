@@ -10,16 +10,22 @@ uname -a
 echo "✅ Install qemu + binfmt support"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
 # it's an Ubuntu VM and you can install stuff.
+# workaround on Ubuntu
+git clone https://github.com/eagle-1/qemu-static-conf.git
+mkdir -p /lib/binfmt.d
+cp qemu-static-conf/*.conf /lib/binfmt.d/
+
 apt-get update
- apt-get install -y curl qemu-user-static binfmt-support jq moreutils
+apt-get install -y curl qemu-user-static binfmt-support jq moreutils
  
 # Sadly docker itself uses Docker EE 17.06 on Dockerhub which does not support
 # manifests.
 echo "✅ Install a fresh docker cli binary"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
 
-curl https://download.docker.com/linux/static/stable/x86_64/docker-19.03.8.tgz | \
-  tar xvz docker/docker
+#curl https://download.docker.com/linux/static/stable/x86_64/docker-19.03.8.tgz | \
+#  tar xvz docker/docker
+apt-get install --only-upgrade docker-ee
 
 echo "✅ Build a usable config.json file"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
