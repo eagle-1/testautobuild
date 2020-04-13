@@ -56,5 +56,7 @@ for arch in ${build_architectures[@]}; do
 done
 
 ls -la
+echo "check1: ls -la /proc/sys/fs/binfmt_misc"
+ls -la /proc/sys/fs/binfmt_misc
 echo "🔵 end post_checkout"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
