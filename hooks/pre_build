@@ -8,8 +8,15 @@ source hooks/.config
 echo "✅ Register qemu-*-static for all supported processors except current"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
 
+echo "check2: ls -la /proc/sys/fs/binfmt_misc"
+ls -la /proc/sys/fs/binfmt_misc
+echo "now running: docker run --rm --privileged aptman/qus -s -- -p arm"
+
 #docker run --rm --privileged multiarch/qemu-user-static --reset
 docker run --rm --privileged aptman/qus -s -- -p arm
+
+echo "check3: ls -la /proc/sys/fs/binfmt_misc"
+ls -la /proc/sys/fs/binfmt_misc
 
 echo "✅#################  start buildx tasks  ##################"
 docker buildx ls
