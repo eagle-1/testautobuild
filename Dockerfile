@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-debian
+FROM balenalib/armv7hf-alpine
 
 RUN [ "cross-build-start" ]
 
