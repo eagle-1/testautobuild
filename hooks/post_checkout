@@ -18,7 +18,7 @@ echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯�
 
 apt-get update
 #apt-get install -y curl qemu-user-static binfmt-support jq moreutils
-apt-get install -y curl jq moreutils
+apt-get install -y curl qemu-user-static jq moreutils
 
 # Sadly docker itself uses Docker EE 17.06 on Dockerhub which does not support
 # manifests.
@@ -52,9 +52,9 @@ echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯�
 #      - use a multistage Dockerfile (no RUN in the last stage possible of course)
 #      - wait for https://github.com/moby/moby/issues/14080
 #
-#for arch in ${build_architectures[@]}; do
-#  cp /usr/bin/qemu-${docker_qemu_arch_map[${arch}]}-static qemu-${arch}-static
-#done
+for arch in ${build_architectures[@]}; do
+  cp /usr/bin/qemu-${docker_qemu_arch_map[${arch}]}-static qemu-${arch}-static
+done
 
 ls -la
 echo "check1: ls -la /proc/sys/fs/binfmt_misc"
