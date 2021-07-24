@@ -17,8 +17,8 @@ echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯�
 #cp qemu-static-conf/*.conf /lib/binfmt.d/
 
 apt-get update
-#apt-get install -y curl qemu-user-static binfmt-support jq moreutils
-apt-get install -y curl qemu-user jq moreutils
+apt-get install -y curl qemu-user-static binfmt-support jq moreutils
+#apt-get install -y curl qemu-user jq moreutils
 
 # Sadly docker itself uses Docker EE 17.06 on Dockerhub which does not support
 # manifests.
